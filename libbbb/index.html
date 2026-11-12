@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Library</title>
+    <link rel="stylesheet" href="frontend.css">
+    <script src="backend.js" defer></script>
+    <script src="frontend.js" defer></script>
+</head>
+<body>
+    <header class="Navigation">
+        <h1>Campus Library</h1>
+        <div class="nav-actions">
+            <button id="reservation" type="button">My Reservations</button>
+            <button id="logout" type="button">Log out</button>
+        </div>
+    </header>
+    <main>
+        <section class="catalog-intro" aria-labelledby="search-title">
+            <h2 id="search-title">Search books</h2>
+            <form class="search-bar" id="search-form" role="search">
+                <label class="sr-only" for="search">Search books</label>
+                <input type="search" id="search" name="search" placeholder="Search by title, author, subject, or ISBN" autocomplete="off">
+                <button id="search-button" type="submit">Search</button>
+            </form>
+        </section>
+        <section class="filter-section" aria-label="Filter books">
+            <div class="Filters" id="department-filters"><p class="para">Department:</p></div>
+            <div class="Filters" id="status-filters">
+                <p class="para">Status:</p>
+                <button class="filter-button is-active" type="button" data-status="all" aria-pressed="true">All</button>
+                <button class="filter-button" type="button" data-status="available" aria-pressed="false">Available on shelf</button>
+                <button class="filter-button" type="button" data-status="checked-out" aria-pressed="false">Checked out</button>
+            </div>
+        </section>
+        <p class="results-summary" id="results-summary" aria-live="polite"></p>
+        <section class="cards" id="book-list" aria-label="Book catalog"></section>
+    </main>
+    <dialog id="reservations-dialog" aria-labelledby="reservations-title">
+        <div class="dialog-heading">
+            <h2 id="reservations-title">My Reservations</h2>
+            <button class="icon-button" id="close-reservations" type="button" aria-label="Close reservations">&times;</button>
+        </div>
+        <div id="reservation-list"></div>
+    </dialog>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <footer><p>&copy; 2026 LPU. All Rights Reserved.</p></footer>
+</body>
+</html>
